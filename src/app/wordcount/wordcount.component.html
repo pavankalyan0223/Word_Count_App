@@ -1,0 +1,28 @@
+<div class="bodycontainer">
+    <div class="container">
+        <h2>Upload a file to see the top ten repeated terms in the file.</h2>
+        <h3>Note: Only .txt files will be accepted.</h3>
+        <div class="uploadfile">
+          <label for="formFile" id="fr" class="formlabel">Upload file example:</label>
+          <input (change)="onFilechange($any($event.target).files)"  class="form-control" type="file" id="formFile" accept=".txt">
+          <button (click)="clearData()" (click)="this.upload($event)" type="button" id="btn">Upload</button>
+        </div>
+    </div>
+   
+    <div *ngIf="wordCount" class="tables">
+        <table >
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let word of topWords">
+                <td>{{word.word}}</td>
+                <td>{{word.count}}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

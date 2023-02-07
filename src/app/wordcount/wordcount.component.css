@@ -1,0 +1,40 @@
+.bodycontainer{
+    text-align: center;
+    padding:80px 0 15% 0;
+    border: 1px solid black;
+}
+
+#btn{
+    background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+#formFile{
+    padding: 0px 5px;
+    font-style: italic;
+}
+input[type=file] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    
+}
+.tables{
+    padding: 30px 0px;
+}
+table,td,th{
+    
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;    
+    width: 300px;  
+    border: 1px solid black;  
+    text-align: center;  
+    font-size: 20px; 
+}
