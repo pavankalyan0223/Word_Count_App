@@ -7,35 +7,24 @@ import { UploadService } from '../upload.service';
   styleUrls: ['./wordcount.component.css']
 })
 export class WordcountComponent implements OnInit {
-
-
   ngOnInit(): void {
   }
-
-  title: any;
-  
- 
   fileContent: any = '';
-  
   wordCount: { [key: string]: number } = {};
   topWords: Array<{ word: string; count: number }> = [];
-
 
   constructor(private uploadService: UploadService){}
 
   onFilechange( files : FileList): void{
-    
-
     console.log(files);
     let file = files[0];
     let fileReader: FileReader = new FileReader();
     let self = this;
-    
     fileReader.onloadend = function(x) {
       self.fileContent = fileReader.result;
     }
+
     fileReader.readAsText(file);
-  
   }
   // onFilechange(event: any) {
   //   console.log(event.target.files[0])
@@ -43,6 +32,10 @@ export class WordcountComponent implements OnInit {
   // }
   
   upload(event :any) {
+    if(!this.fileContent){
+      alert("Please select a File or File is empty")
+    }
+    else{
     const reader = new FileReader();
     
     console.log(this.fileContent);
@@ -63,10 +56,8 @@ export class WordcountComponent implements OnInit {
       .slice(0, 10)
       .map(([word, count]) => ({ word, count }));
 
-
-
-    console.log(this.wordCount)
-    console.log(this.topWords)
+      console.log(this.wordCount)
+      console.log(this.topWords)
     // if (this.file) {
     //   this.uploadService.uploadfile(this.file).subscribe(resp => {
     //     alert("Uploaded")
@@ -77,6 +68,8 @@ export class WordcountComponent implements OnInit {
     // } else {
     //   alert("Please select a file first")
     // }
+  }
+  
   }
 
   clearData() {

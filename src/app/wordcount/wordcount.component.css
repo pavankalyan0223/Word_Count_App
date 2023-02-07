@@ -1,9 +1,18 @@
 .bodycontainer{
     text-align: center;
-    padding:80px 0 15% 0;
-    border: 1px solid black;
+    padding:60px 0 15% 0;
+    
+    color: rgb(255, 255, 255);
 }
-
+h1{
+    color: rgba(128, 137, 179, 0.705);
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: bold;
+}   
+h3{
+    color: #f81010;
+}
 #btn{
     background-color: #4CAF50; /* Green */
   border: none;
@@ -34,7 +43,8 @@ table,td,th{
     margin-right: auto;
     border-collapse: collapse;    
     width: 300px;  
-    border: 1px solid black;  
+    border: 1px solid rgb(238, 238, 238);  
     text-align: center;  
     font-size: 20px; 
+    font-style: inherit;
 }
