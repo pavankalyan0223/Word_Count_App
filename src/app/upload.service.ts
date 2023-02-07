@@ -11,6 +11,6 @@ export class UploadService {
   //   let formParams = new FormData();
   //   formParams.append('file', file)
     
-  //   return this.httpClient.post('http://localhost:3000/uploadFile', formParams)
+  //   return this.httpClient.post('http://localhost:4200/uploadFile', formParams)
   // }
 }
