@@ -12,7 +12,7 @@ import { WordcountComponent } from './wordcount/wordcount.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    WordcountComponent
+    WordcountComponent,
   ],
   imports: [
     BrowserModule,
