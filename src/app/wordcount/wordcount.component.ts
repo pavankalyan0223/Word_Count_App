@@ -9,31 +9,38 @@ import { UploadService } from '../upload.service';
 export class WordcountComponent implements OnInit {
   ngOnInit(): void {
   }
+  
+  file!: File;
   fileContent: any = '';
   wordCount: { [key: string]: number } = {};
   topWords: Array<{ word: string; count: number }> = [];
 
-  constructor(private uploadService: UploadService){}
+  constructor(){}
 
   onFilechange( files : FileList): void{
     console.log(files);
-    let file = files[0];
+    this.file = files[0];
+    if(!this.file){
+      alert("Please select a File")
+    }
+    else{
     let fileReader: FileReader = new FileReader();
     let self = this;
     fileReader.onloadend = function(x) {
       self.fileContent = fileReader.result;
     }
 
-    fileReader.readAsText(file);
+    fileReader.readAsText(this.file);
   }
-  // onFilechange(event: any) {
-  //   console.log(event.target.files[0])
-  //   this.file = event.target.files[0]
-  // }
+  }
   
-  upload(event :any) {
-    if(!this.fileContent){
-      alert("Please select a File or File is empty")
+  
+  upload() {
+    if(!this.file){
+      alert("Please Select a File")
+    }
+    else if(!this.fileContent){
+      alert("Selected File is empty")
     }
     else{
     const reader = new FileReader();
@@ -58,21 +65,13 @@ export class WordcountComponent implements OnInit {
 
       console.log(this.wordCount)
       console.log(this.topWords)
-    // if (this.file) {
-    //   this.uploadService.uploadfile(this.file).subscribe(resp => {
-    //     alert("Uploaded")
-    //   })
-
-    //   console.log(this.file.text())
-    //   alert("Uploaded")
-    // } else {
-    //   alert("Please select a file first")
-    // }
+    
   }
   
   }
 
   clearData() {
+    
     this.wordCount = {};
     this.topWords = [];
   }

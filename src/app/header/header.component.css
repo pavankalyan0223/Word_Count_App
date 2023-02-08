@@ -3,7 +3,7 @@
     overflow: hidden;
     background:transparent;
     padding: 20px 10px;
-    border-bottom: 1px solid #fdfdfd;
+    border-bottom: 2px solid #e9f500;
   }
   
   
@@ -21,19 +21,19 @@
  .header a.logo {
     font-size: 30px;
     font-weight: bold;
-    color: rgba(140, 147, 181, 0.745);
-    
+    color: rgb(0, 0, 0);
+    background-color:  rgb(255, 247, 0);
     font-family:cursive
   }
   
   .header a:hover {
-    background-color: rgb(31, 152, 251);
-    color: rgb(255, 255, 255);
+    background-color: rgb(255, 247, 0);
+    color: rgb(1, 1, 1);
   }
   
   .header a.active {
-    background-color: dodgerblue;
-    color: white;
+    background-color: rgb(255, 247, 0);
+    color: rgb(1, 1, 1);
   }
   
   .header-right {
