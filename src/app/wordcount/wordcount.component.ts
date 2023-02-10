@@ -36,8 +36,8 @@ export class WordcountComponent implements OnInit {
   
   
   upload() {
-    if(!this.fileContent){
-      alert("Selected File is empty.")
+    if(!this.file){
+      alert("Please Select a File.")
     }
     else if(!this.fileContent){
       alert("Selected File is empty.")
