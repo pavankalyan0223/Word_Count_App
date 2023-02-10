@@ -8,6 +8,8 @@ import { UploadService } from '../upload.service';
 })
 export class WordcountComponent implements OnInit {
   ngOnInit(): void {
+
+  
   }
   
   file!: File;
@@ -18,12 +20,10 @@ export class WordcountComponent implements OnInit {
   constructor(){}
 
   onFilechange( files : FileList): void{
+    
     console.log(files);
     this.file = files[0];
-    if(!this.file){
-      alert("Please select a File")
-    }
-    else{
+    
     let fileReader: FileReader = new FileReader();
     let self = this;
     fileReader.onloadend = function(x) {
@@ -31,22 +31,25 @@ export class WordcountComponent implements OnInit {
     }
 
     fileReader.readAsText(this.file);
-  }
+  
   }
   
   
   upload() {
-    if(!this.file){
-      alert("Please Select a File")
+    if(!this.fileContent){
+      alert("Selected File is empty.")
     }
     else if(!this.fileContent){
-      alert("Selected File is empty")
+      alert("Selected File is empty.")
     }
     else{
     const reader = new FileReader();
     
-    console.log(this.fileContent);
+    this.clearData();
+
     const cont=this.fileContent;
+    console.log(cont);
+    
     const words=cont.split(' ');
     console.log(words);
     
@@ -58,20 +61,18 @@ export class WordcountComponent implements OnInit {
       }
     });
 
+    console.log(this.wordCount)
+
     this.topWords = Object.entries(this.wordCount)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10)
       .map(([word, count]) => ({ word, count }));
 
-      console.log(this.wordCount)
       console.log(this.topWords)
-    
   }
-  
   }
 
   clearData() {
-    
     this.wordCount = {};
     this.topWords = [];
   }
